@@ -130,7 +130,7 @@ python manage.py runserver
 1. 만약 Release Version을 낼 때는 Upstream의 dev Branch에서 main Branch로 PR을 날립니다.
 2. 해당 Repository의 모든 사용자가 Code를 재확인한 후 Merge를 합니다.
 
-## Commit & PR Convention
+## Commit
 
 | Commit Type | Description                                                    |
 | ----------- | -------------------------------------------------------------- |
@@ -145,7 +145,7 @@ python manage.py runserver
 <br>
 
 
-### PR Convention
+## PR Convention
 
 | Icon           | 사용법              | Description                      |
 | -------------- | ------------------- | -------------------------------- |
