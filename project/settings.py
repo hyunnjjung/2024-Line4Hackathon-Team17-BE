@@ -82,6 +82,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'project.wsgi.application'
 
+AUTH_USER_MODEL = 'user.User'  # 'users'는 앱 이름, 'User'는 모델 이름
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
