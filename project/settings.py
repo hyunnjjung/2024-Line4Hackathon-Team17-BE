@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     # apps
     'user',
+    'mypage',
 
     # drf
     'rest_framework',
