@@ -5,6 +5,7 @@ from .models import Post, Report, Block, Reaction
 from .serializers import PostSerializer, ReportSerializer
 from django.shortcuts import get_object_or_404
 
+
 # 공감글 전체 조회, 공감글 생성하는 뷰
 class CommunityPostListCreateView(generics.ListCreateAPIView):
     serializer_class = PostSerializer # postserialzer 이용
@@ -12,7 +13,9 @@ class CommunityPostListCreateView(generics.ListCreateAPIView):
 
     def get_queryset(self): # 공감글 반환
         blocked_posts = Block.objects.filter(user=self.request.user).values_list('post', flat=True) # 차단 글 제외 모든 글 반환
-        return Post.objects.exclude(id__in=blocked_posts).order_by('-created_at') # 최근 생성된 글 순으로
+        reported_posts = Report.objects.filter(user=self.request.user).values_list('post', flat=True)
+        # 차단 및 신고된 글 제외 모든 글 반환
+        return Post.objects.exclude(id__in=blocked_posts).exclude(id__in=reported_posts).order_by('-created_at')
 
     def get_serializer_context(self):
         context = super().get_serializer_context() # request 정보를 serializer에 전달
@@ -31,10 +34,10 @@ class CommunityPostDetailView(generics.RetrieveDestroyAPIView):
 
     def get_object(self): # 공감글 반환
         post = super().get_object()
-        # 사용자가 차단한 글인지 확인
-        if Block.objects.filter(user=self.request.user, post=post).exists():
+        # 사용자가 차단한 글하거나 신고한 인지 확인
+        if Block.objects.filter(user=self.request.user, post=post).exists() or Report.objects.filter(user=self.request.user, post=post).exists():
             self.permission_denied(
-                self.request, message="차단된 글에 접근할 수 없습니다."
+                self.request, message="차단되거나 신고된 글에 접근할 수 없습니다."
             )
         return post
 
