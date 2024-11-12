@@ -4,4 +4,5 @@ from django.urls import path , include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('community/', include('post.urls')), # 공감글
+    path('pating/', include('pat.urls'))
 ]
