@@ -1,5 +1,8 @@
 from rest_framework import serializers
 from .models import Category, PatingPost, PatingParticipation, PatingReport, PatingBlock
+from django.contrib.auth import get_user_model
+
+user = get_user_model
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:

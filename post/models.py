@@ -1,13 +1,15 @@
 from django.db import models
-from django.contrib.auth.models import User # 만든 유저 모델과 연결 필요
+from django.conf import settings
+from django.contrib.auth import get_user_model
+
+User = get_user_model() 
 
 # 공감글 모델
 class Post(models.Model):
-    title = models.CharField(max_length=50) # 제목
-    content = models.TextField(max_length=100) # 본문
-    author = models.ForeignKey(User, on_delete=models.CASCADE) # 작성자
-    created_at = models.DateTimeField(auto_now_add=True) # 생성된 날짜, 시간
-
+    title = models.CharField(max_length=50)  # 제목
+    content = models.TextField(max_length=100)  # 본문
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # 작성자
+    created_at = models.DateTimeField(auto_now_add=True)  # 생성된 날짜, 시간
     support_count = models.PositiveIntegerField(default=0)  # 응원 수
     empathy_count = models.PositiveIntegerField(default=0)  # 공감 수
     congratulations_count = models.PositiveIntegerField(default=0)  # 축하 수
@@ -25,7 +27,7 @@ class Reaction(models.Model):
         ('luck', '행운'),
     ] # 공감 종류 4종류
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE) # 공감하는 유저
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) # 공감하는 유저
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='reactions') # 공감할 포스트
     reaction_type = models.CharField(max_length=20, choices=REACTION_CHOICES) # 공감 종류
 
@@ -37,9 +39,9 @@ class Reaction(models.Model):
 # 공감글 신고
 class Report(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='reports') # 신고할 게시물
-    user = models.ForeignKey(User, on_delete=models.CASCADE) # 신고하는 유저
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) # 신고하는 유저
 
 # 공감글 차단
 class Block(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='blocks') # 차단할 게시물
-    user = models.ForeignKey(User, on_delete=models.CASCADE) # 차단하는 유저
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) # 차단하는 유저

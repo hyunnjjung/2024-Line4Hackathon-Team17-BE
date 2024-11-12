@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'user',
     'post',
     'pat',
+    'mypage',
 
     # drf
     'rest_framework',
@@ -84,6 +85,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'project.wsgi.application'
 
+AUTH_USER_MODEL = 'user.User'  # 'users'는 앱 이름, 'User'는 모델 이름
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
