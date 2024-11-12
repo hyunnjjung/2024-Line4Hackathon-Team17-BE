@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     # drf
     'rest_framework',
     'corsheaders',
+    'drf_yasg', #drf_yasg
 ]
 
 MIDDLEWARE = [
