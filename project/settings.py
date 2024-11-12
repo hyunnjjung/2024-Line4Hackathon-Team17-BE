@@ -41,6 +41,8 @@ INSTALLED_APPS = [
 
     # apps
     'user',
+    'post',
+    'pat',
     'mypage',
 
     # drf
