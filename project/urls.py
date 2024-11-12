@@ -11,4 +11,5 @@ urlpatterns = [
     path('user/', include('user.urls')),
     path('mypage/', include('mypage.urls')),
     path('api/', include('chat.urls')),
+    path('api/', include('noti.urls')),
 ]
