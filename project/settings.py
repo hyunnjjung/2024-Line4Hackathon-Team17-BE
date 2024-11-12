@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'post',
     'pat',
     'mypage',
+    'noti',
+    'chat',
 
     # drf
     'rest_framework',
@@ -161,3 +163,12 @@ CORS_ALLOWED_ORIGINS = [
     #'http://프론트엔드주소:포트번호'
 
 ]
+
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),   # 액세스 토큰 유효기간 설정 (예: 1시간)
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),   # 리프레시 토큰 유효기간 설정 (예: 7일)
+    'ROTATE_REFRESH_TOKENS': False,                # 리프레시 토큰이 갱신될 때마다 새로운 리프레시 토큰을 발급할지 설정
+    'BLACKLIST_AFTER_ROTATION': True,              # 리프레시 토큰이 갱신된 후 이전 리프레시 토큰을 블랙리스트에 추가할지 설정
+}
