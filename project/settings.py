@@ -163,6 +163,7 @@ CORS_ALLOWED_ORIGINS = [
     #'http://프론트엔드주소:포트번호'
     "http://localhost:3000",  # 프론트엔드
     "http://127.0.0.1:3000",
+    "https://poting.netlify.app"
 
 ]
 
