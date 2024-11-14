@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-h&n*)%u5^)+tvqpze7lesau^zy#n7c%1oenyqqdd=8bviz6(ho'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -50,21 +50,24 @@ INSTALLED_APPS = [
     # drf
     'rest_framework',
     'corsheaders',
+    'drf_yasg', #drf_yasg
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    
-    # corsheaders
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-
-
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+CORS_ORIGIN_WHITELIST = [
+    'http://127.0.0.1:8000',
+    'http://localhost:3000',
+    'https://poting.netlify.app'
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -141,14 +144,14 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_ROOT=os.path.join(BASE_DIR,'static')
+STATIC_ROOT=os.path.join(BASE_DIR,'static/')
 
 
 CORS_ALLOWED_ORIGINS = [
@@ -161,6 +164,9 @@ CORS_ALLOWED_ORIGINS = [
 
     #'http://프론트엔드주소'
     #'http://프론트엔드주소:포트번호'
+    'http://localhost:3000',  # 프론트엔드
+    'http://127.0.0.1:3000',
+    'https://poting.netlify.app'
 
 ]
 
