@@ -152,6 +152,7 @@ STATIC_ROOT=os.path.join(BASE_DIR,'static')
 
 
 CORS_ALLOWED_ORIGINS = [
+    'http://3.34.247.39',
     #로컬 개발용 주소
     #'http://127.0.0.1:8000/'
 
