@@ -169,6 +169,8 @@ CORS_ALLOWED_ORIGINS = [
 
 ]
 
+
+
 from datetime import timedelta
 
 SIMPLE_JWT = {
