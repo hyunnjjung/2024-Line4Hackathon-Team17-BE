@@ -7,6 +7,7 @@ from .models import PatingPost, PatingParticipation, PatingReport, PatingBlock
 from .serializers import PatingPostSerializer, PatingParticipationSerializer
 from django.shortcuts import get_object_or_404
 
+
 class PatingPostListCreateView(generics.ListCreateAPIView):
     serializer_class = PatingPostSerializer
     permission_classes = [IsAuthenticated]
