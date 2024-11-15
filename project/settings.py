@@ -157,7 +157,6 @@ STATIC_ROOT=os.path.join(BASE_DIR,'static/')
 
 
 
-
 from datetime import timedelta
 
 SIMPLE_JWT = {

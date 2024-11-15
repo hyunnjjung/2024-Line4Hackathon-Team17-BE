@@ -8,7 +8,7 @@ router.register('register', UserViewSet, basename='register')
 router.register('interests', InterestViewSet, basename='interests')
 
 urlpatterns = [
-    path('', include(router.urls)),
-    path('login/', LoginView.as_view(), name='login'),
-    path('login/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('user/', include(router.urls)),
+    path('user/login/', LoginView.as_view(), name='login'),
+    path('user/login/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
