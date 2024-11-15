@@ -1,9 +1,10 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework_simplejwt.views import TokenObtainPairView
-from .serializers import RegisterSerializer, InterestSerializer
+from .serializers import RegisterSerializer, InterestSerializer,UserDetailSerializer
 from .models import User, Interest
+from rest_framework.decorators import action
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -18,6 +19,13 @@ class UserViewSet(viewsets.ModelViewSet):
             "user": RegisterSerializer(result['user']).data,
             "token": result['token']
         }, status=status.HTTP_201_CREATED)
+    
+     # 특정 사용자의 프로필 정보 조회
+    @action(detail=True, methods=['get'], permission_classes=[IsAuthenticated])
+    def profile(self, request, pk=None):
+        user = self.get_object()
+        serializer = UserDetailSerializer(user)
+        return Response(serializer.data)
 
 class InterestViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Interest.objects.all()

@@ -39,3 +39,10 @@ class RegisterSerializer(serializers.ModelSerializer):
             'user': user,
             'token': str(refresh.access_token)
         }
+
+class UserDetailSerializer(serializers.ModelSerializer):
+    interests = InterestSerializer(many=True)
+
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'gender', 'nickname', 'birth_date', 'address', 'interests']
