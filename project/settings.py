@@ -28,10 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOW_ALL_ORIGINS = True
-
 
 # Application definition
 
@@ -66,6 +62,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
+    'https://poting.netlify.app'
 ]
 
 
@@ -152,21 +155,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_ROOT=os.path.join(BASE_DIR,'static/')
 
-
-CORS_ALLOWED_ORIGINS = [
-    #로컬 개발용 주소
-    #'http://127.0.0.1:8000/'
-
-    # 프론트엔드 도메인 도는 IP 주소
-    #예를 들어, 아래와  같이 입력,
-
-    #'http://프론트엔드주소'
-    #'http://프론트엔드주소:포트번호'
-    'http://localhost:3000',  # 프론트엔드
-    'http://127.0.0.1:3000',
-    'https://poting.netlify.app'
-
-]
 
 
 
