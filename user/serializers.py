@@ -15,7 +15,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         model = User
         fields = [
             'id', 'name', 'username', 'password', 'password_confirmation', 'gender', 
-            'nickname', 'birth_date', 'address', 'interests','profile_picture'
+            'nickname', 'birth_date', 'address', 'interests'
         ]
         extra_kwargs = {'password': {'write_only': True}}
 
@@ -45,7 +45,6 @@ class UserDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['gender', 'nickname', 'birth_date', 'interests','profile_picture']
+        fields = ['gender', 'nickname', 'birth_date', 'interests']
 
 
-profile_picture= serializers.ImageField(use_url=True, required=False)
