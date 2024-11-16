@@ -80,7 +80,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-## 1. 개발 환경
+## 🛠 개발 환경
 
 - PD : Figma ( [디자인 보러가기 ](https://www.figma.com/design/QoYerRSNVn6RwYx7aWuvUT/%EC%BD%A9%EB%8B%A5%EC%BD%A9%EB%8B%A5?node-id=2594-2732&t=dzkaXg1aOwc6rUh5-1))
 - Frontend : HTML, CSS, JavaScript
@@ -90,7 +90,7 @@ python manage.py runserver
 
 <br>
 
-## 2. 🖥️ 협업 전략
+## 🖥️ 협업 전략
 
 ### Git-flow 전략
 
