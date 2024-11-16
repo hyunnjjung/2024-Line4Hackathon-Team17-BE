@@ -3,7 +3,7 @@
 
 ## 나랑 같이 Pot구하러 갈래?
 <br>
-![image](https://github.com/user-attachments/assets/4a37614c-0467-4752-b8cc-fad2c7cb219b)
+[image](https://github.com/user-attachments/assets/4a37614c-0467-4752-b8cc-fad2c7cb219b)
 
 
 
