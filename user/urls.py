@@ -11,4 +11,4 @@ urlpatterns = [
     path('user/', include(router.urls)),
     path('user/login/', LoginView.as_view(), name='login'),
     path('user/login/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-]
+] 

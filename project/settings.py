@@ -165,3 +165,7 @@ SIMPLE_JWT = {
     'ROTATE_REFRESH_TOKENS': False,                # 리프레시 토큰이 갱신될 때마다 새로운 리프레시 토큰을 발급할지 설정
     'BLACKLIST_AFTER_ROTATION': True,              # 리프레시 토큰이 갱신된 후 이전 리프레시 토큰을 블랙리스트에 추가할지 설정
 }
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
