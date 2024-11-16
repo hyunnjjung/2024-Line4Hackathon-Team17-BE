@@ -21,10 +21,13 @@ class PatingPostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = PatingPost
-        fields = ['id', 'title', 'content', 'location', 'category', 'time', 'max_participants', 'created_by', 'participants_count', 'participants', 'closed', 'created_at']
+        fields = ['id', 'title', 'content', 'location', 'category', 'created_by_id',  'time', 'max_participants', 'created_by', 'participants_count', 'participants', 'closed', 'created_at']
 
     def get_participants_count(self, obj):
         return obj.participants.count()
+    
+    def get_created_by_id(self, obj):
+        return obj.created_by.id
 
 
 class PatingReportSerializer(serializers.ModelSerializer):
