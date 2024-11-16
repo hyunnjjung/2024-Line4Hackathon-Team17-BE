@@ -1,7 +1,7 @@
 # PoTing
 <br>
 
-## 나랑 같이 Pot구하러 갈래
+## 나랑 같이 PoT 구하러 갈래?
 <br>
 
 <image src = "https://github.com/user-attachments/assets/8c6c585f-cf10-4fe6-8b74-7994e7ce4e0e" width="80%" />
