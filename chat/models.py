@@ -1,10 +1,10 @@
 # chat/models.py
 from django.db import models
 from django.conf import settings
-from post.models import Post
+from pat.models import PatingPost
 
 class ChatRoom(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="chat_rooms")
+    post = models.ForeignKey(PatingPost, on_delete=models.CASCADE, related_name="chat_rooms")
     user1 = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="user1_rooms")
     user2 = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="user2_rooms")
     created_at = models.DateTimeField(auto_now_add=True)

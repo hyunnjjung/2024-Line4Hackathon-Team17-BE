@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
 from .models import ChatRoom, Message
 from .serializers import ChatRoomSerializer, MessageSerializer
-from post.models import Post
+from pat.models import PatingPost
 from django.db import models
 
 
@@ -52,8 +52,8 @@ class ChatRoomCreateView(APIView):
 
     def post(self, request):
         post_id = request.data.get("post_id")
-        post = get_object_or_404(Post, id=post_id)
-        user1 = post.author
+        post = get_object_or_404(PatingPost, id=post_id)
+        user1 = post.created_by  # 수정된 부분
         user2 = request.user
 
         # 채팅방이 이미 존재하는지 확인
