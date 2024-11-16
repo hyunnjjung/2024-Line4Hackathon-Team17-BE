@@ -90,7 +90,7 @@ python manage.py runserver
 
 <br>
 
-## 2. 협업 전략
+## 2. 🖥️ 협업 전략
 
 ### Git-flow 전략
 
